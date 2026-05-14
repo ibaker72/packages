@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Inter,
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html, body { height: 100%; }
+body {
+  @apply bg-ink-50 text-ink-900 antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+
+::selection { background: theme("colors.amber.200"); color: theme("colors.ink.900"); }
+
+.surface {
+  @apply bg-white border border-ink-100 rounded-2xl shadow-soft;
+}
+.surface-dark {
+  @apply bg-ink-900 text-ink-50 rounded-2xl;
+}
+.hairline { @apply border-t border-ink-100; }
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full
+         px-5 py-2.5 text-sm font-medium transition select-none
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary { @apply btn bg-ink-900 text-white hover:bg-ink-800; }
+.btn-accent  { @apply btn bg-amber-600 text-white hover:bg-amber-700; }
+.btn-ghost   { @apply btn text-ink-900 hover:bg-ink-100; }
+.btn-outline { @apply btn border border-ink-200 text-ink-900 hover:bg-ink-50; }
+
+.chip {
+  @apply inline-flex items-center gap-1 rounded-full border border-ink-200
+         bg-white px-2.5 py-1 text-xs font-medium text-ink-700;
+}
+
+.input {
+  @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm
+         text-ink-900 placeholder:text-ink-400
+         focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500;
+}
+
+.kpi {
+  @apply surface p-5 flex flex-col gap-1;
+}
+
+.gradient-hero {
+  background:
+    radial-gradient(60% 60% at 80% 0%, rgba(180, 83, 9, 0.25), transparent 60%),
+    radial-gradient(40% 40% at 0% 100%, rgba(240, 159, 48, 0.15), transparent 60%),
+    linear-gradient(180deg, #0A0A07 0%, #17160F 100%);
+}
+
+.grain::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: .35;
+}
